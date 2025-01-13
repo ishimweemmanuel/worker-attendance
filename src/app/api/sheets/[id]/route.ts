@@ -1,14 +1,18 @@
+import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Sheet from '@/models/Sheet';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  _req: NextRequest,
+  context: { params: { id: string } }
 ) {
   try {
     await connectDB();
-    const sheet = await Sheet.findById(params.id);
+    const id = context.params.id;
+    const sheet = await Sheet.findById(id);
 
     if (!sheet) {
       return NextResponse.json(
