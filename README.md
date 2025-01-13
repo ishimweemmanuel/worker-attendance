@@ -11,6 +11,7 @@ A modern work attendance tracking application built with Next.js 15, featuring r
 - Dark/Light theme support
 - Modern UI with Tailwind CSS
 - Responsive design
+- MongoDB Atlas for remote database access
 
 ## Tech Stack
 
@@ -19,7 +20,7 @@ A modern work attendance tracking application built with Next.js 15, featuring r
 - **UI Components:** Radix UI
 - **Charts:** ApexCharts, Recharts
 - **Forms:** React Hook Form with Zod validation
-- **Database:** MongoDB with Mongoose
+- **Database:** MongoDB Atlas with Mongoose
 - **Type Safety:** TypeScript
 - **State Management:** React Hooks
 - **Notifications:** React Hot Toast, Sonner
@@ -32,15 +33,29 @@ A modern work attendance tracking application built with Next.js 15, featuring r
    npm install
    ```
 
-3. Set up your environment variables:
-   Create a `.env` file in the root directory with your configuration
+3. Set up MongoDB Atlas:
+   - Create a free account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
+   - Create a new cluster (free tier M0 is sufficient)
+   - Set up database access (create a database user)
+   - Configure network access (allow your IP or set to allow all IPs for development)
+   - Get your connection string from the Connect button
 
-4. Run the development server:
+4. Set up your environment variables:
+   Create a `.env` file in the root directory with:
+   ```
+   MONGODB_URI="mongodb+srv://<username>:<password>@<cluster-url>/?retryWrites=true&w=majority"
+   ```
+   Replace:
+   - `<username>` with your MongoDB Atlas username
+   - `<password>` with your MongoDB Atlas user password
+   - `<cluster-url>` with your cluster URL
+
+5. Run the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application
 
 ## Project Structure
 
@@ -56,6 +71,16 @@ A modern work attendance tracking application built with Next.js 15, featuring r
 - `npm run build` - Build for production
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
+
+## Environment Variables
+
+Required environment variables:
+- `MONGODB_URI`: Your MongoDB Atlas connection string
+
+Important:
+- Never commit your `.env` file to version control
+- Keep your database credentials secure
+- Use different databases for development and production
 
 ## Contributing
 
