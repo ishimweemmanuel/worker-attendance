@@ -4,11 +4,11 @@ import Sheet from '@/models/Sheet';
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
     await connectDB();
-    const sheet = await Sheet.findById(context.params.id);
+    const sheet = await Sheet.findById(params.id);
 
     if (!sheet) {
       return NextResponse.json(
