@@ -9,9 +9,13 @@ A modern work attendance tracking application built with Next.js 15, featuring r
 - Real-time attendance monitoring
 - Data visualization using ApexCharts and Recharts
 - Dark/Light theme support
-- Modern UI with Tailwind CSS
 - Responsive design
+<<<<<<< HEAD
 - MongoDB Atlas for remote database access
+=======
+- Modern UI with Tailwind CSS
+
+>>>>>>> 5d4a81b152920b32c54d4f3464fedcaa3812d1de
 
 ## Tech Stack
 
